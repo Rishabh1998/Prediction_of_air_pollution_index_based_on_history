@@ -3,7 +3,6 @@ if(length(setdiff(packages, rownames(installed.packages()))) > 0){
         install.packages(setdiff(packages, rownames(installed.packages())))
 }
 
-
 lapply(packages, require, character.only = TRUE)
 
 setwd("C:/Users/Jhingalala/Desktop")
@@ -48,7 +47,6 @@ dfsplit <- lapply(dfsplit,
                                   x <- x[-1]
                           }
                 )
-
 
 # lapply(dfsplit,dim)
 
@@ -192,7 +190,6 @@ insertRow2 <- function(existingDF, newrow, r) {
         return(existingDF)  
 }
 
-
 ggplot(dfsplit$CO, aes(Time, pollution_Level)) + geom_line() + ylab("pollution Level") +
         xlab("Time") + ggtitle("CO")
 
@@ -237,7 +234,6 @@ dfsplit1 <- lapply(dfsplit,
                           return(x)
                   }
         )
-
 
 # lapply(dfsplit, head)
 # lapply(dfsplit, summary)
@@ -366,4 +362,3 @@ tsdisplay(residuals(fit_w_seasonality), lag.max=200, main='(1,1,2) Model Residua
 
 seas_fcast <- forecast(fit_w_seasonality, h=60 * 24)
 plot(seas_fcast)
-
